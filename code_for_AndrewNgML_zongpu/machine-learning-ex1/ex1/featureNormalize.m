@@ -26,19 +26,19 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 m = length(X(:,1));
-
-for i=1:size(X, 2)
-mu(i)=sum(X(:,i))/m;
-sigma(i)=std(X(:,i));
-x=(X(:,i)-mu(i))./sigma(i);%X(:,i)-mu(i))表示每列的每个元素减去均值，./表示点除
-X_norm(:,i)=x;
-end
-
-% mu=mean(X);
-% sigma=std(X);
-% for i = 1:size(X,2),
-%     X_norm(:,i) = (X(:,i) - mu(i)) / sigma(i);
+% 
+% for i=1:size(X, 2)
+% mu(i)=sum(X(:,i))/m;
+% sigma(i)=std(X(:,i));
+% x=(X(:,i)-mu(i))./sigma(i);%X(:,i)-mu(i))表示每列的每个元素减去均值，./表示点除
+% X_norm(:,i)=x;
 % end
+
+mu=mean(X) %不加分号可在执行时显示出结果
+sigma=std(X)
+for i = 1:size(X,2),
+    X_norm(:,i) = (X(:,i) - mu(i)) / sigma(i);
+end
 
 
 
